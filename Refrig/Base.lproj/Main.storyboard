@@ -83,10 +83,10 @@
             </objects>
             <point key="canvasLocation" x="518.84057971014499" y="158.70535714285714"/>
         </scene>
-        <!--Frozen-->
+        <!--Frozen List View Controller-->
         <scene sceneID="1fn-6w-Uab">
             <objects>
-                <viewController title="Frozen" id="Fo0-Cl-q0z" customClass="FrozenListViewController" customModule="Refrig" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Fo0-Cl-q0z" customClass="FrozenListViewController" customModule="Refrig" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kwV-Fs-Rlj">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -128,7 +128,7 @@
                         <viewLayoutGuide key="safeArea" id="X2o-pO-Hze"/>
                     </view>
                     <connections>
-                        <outlet property="tableView" destination="2Hi-3S-YYK" id="yzA-Oq-mDx"/>
+                        <outlet property="tableView" destination="2Hi-3S-YYK" id="yJM-ih-Qde"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4l8-84-F10" userLabel="First Responder" sceneMemberID="firstResponder"/>
