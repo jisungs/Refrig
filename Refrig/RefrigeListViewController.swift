@@ -1,5 +1,5 @@
 //
-//  FrozenListViewController.swift
+//  Refrige.swift
 //  Refrig
 //
 //  Created by The book on 02/06/2019.
@@ -9,28 +9,25 @@
 import Foundation
 import UIKit
 
-class FrozenListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class RefrigeListViewController : UIViewController, UITableViewDelegate, UITableViewDataSource{
     
-    let frozenItemArray = ["ice", "dumplings", "shrimp"]
+    let refrigeItemArray = ["Oragne", "Apple", "grape"]
     
-    @IBOutlet weak var tableView: UITableView!
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return frozenItemArray.count
+        return refrigeItemArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-       let cell = tableView.dequeueReusableCell(withIdentifier: "FrozenItemCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "refrigItemCell", for: indexPath)
         
-        cell.textLabel?.text = frozenItemArray[indexPath.row]
+        cell.textLabel?.text = refrigeItemArray[indexPath.row]
         
         return cell
         
     }
-    
-    
     
     
 }
