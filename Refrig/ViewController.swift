@@ -14,7 +14,14 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-
-
+    
+    
+    @IBAction func frozen(_ sender: Any) {
+        //self.performSegue(withIdentifier: "frozen", sender: self)
+    }
+    
+    @IBAction func refrig(_ sender: Any) {
+    }
+    
 }
 

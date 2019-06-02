@@ -6,40 +6,21 @@
 //  Copyright © 2019 The book. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
-class FrozenListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class FrozenListViewController:UITableViewController  {
     
+    let frozenItemArray = ["ice", "dumplings", "shrimps"]
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-
-    @IBOutlet weak var tableView: UITableView!
-    
-    
-    let frozenItemArray = ["ice", "bumplings", "shrimp"]
-    
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return frozenItemArray.count
-        
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "FrozenItemCell", for: indexPath)
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell =  tableView.dequeueReusableCell(withIdentifier: "frozenItem", for: indexPath)
         
         cell.textLabel?.text = frozenItemArray[indexPath.row]
         
         return cell
-        
     }
-
-    
-    
-    
-    
 }
