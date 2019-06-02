@@ -20,8 +20,6 @@ class ViewController: UIViewController {
         //self.performSegue(withIdentifier: "frozen", sender: self)
     }
     
-    @IBAction func refrig(_ sender: Any) {
-    }
-    
+ 
 }
 

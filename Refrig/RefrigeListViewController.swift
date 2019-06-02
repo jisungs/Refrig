@@ -11,6 +11,17 @@ import UIKit
 
 class RefrigeListViewController : UIViewController, UITableViewDelegate, UITableViewDataSource{
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        table.delegate = self
+        table.dataSource = self
+        
+    }
+    
+    @IBOutlet weak var table: UITableView!
+    
+    
     let refrigeItemArray = ["Oragne", "Apple", "grape"]
     
     
@@ -21,7 +32,9 @@ class RefrigeListViewController : UIViewController, UITableViewDelegate, UITable
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "refrigItemCell", for: indexPath)
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "refrigItemCell", for: indexPath)
+        
+        let cell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "refrigItemCell")
         
         cell.textLabel?.text = refrigeItemArray[indexPath.row]
         

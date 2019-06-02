@@ -46,8 +46,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="refrig:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Rdv-Gc-fiq"/>
-                                    <segue destination="Tps-xo-EXr" kind="show" id="IgA-7f-WnK"/>
+                                    <segue destination="Tps-xo-EXr" kind="show" id="i0y-SD-6su"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gWG-Rg-ocr">
@@ -115,7 +114,7 @@
         <!--Refrigerator-->
         <scene sceneID="K6Z-6f-a0q">
             <objects>
-                <viewController title="Refrigerator" id="Tps-xo-EXr" customClass="RefrigeListViewController" sceneMemberID="viewController">
+                <viewController title="Refrigerator" id="Tps-xo-EXr" customClass="RefrigeListViewController" customModule="Refrig" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QLy-wC-BXr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -156,10 +155,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="p0m-95-YO2"/>
                     </view>
+                    <connections>
+                        <outlet property="table" destination="nmU-j2-nrM" id="S8B-Qy-8oP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZlD-dD-Tng" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1520.289855072464" y="689.73214285714278"/>
+            <point key="canvasLocation" x="1651" y="674"/>
         </scene>
     </scenes>
 </document>
