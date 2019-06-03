@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		960811BF22A3F25300322F19 /* FrozenListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960811BE22A3F25300322F19 /* FrozenListViewController.swift */; };
+		962C3AD522A4ED8C004AC250 /* FrozenListiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962C3AD422A4ED8C004AC250 /* FrozenListiViewController.swift */; };
 		96A9F78622A3B0DD00B01C8A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A9F78522A3B0DD00B01C8A /* AppDelegate.swift */; };
 		96A9F78822A3B0DD00B01C8A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A9F78722A3B0DD00B01C8A /* ViewController.swift */; };
 		96A9F78B22A3B0DD00B01C8A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96A9F78922A3B0DD00B01C8A /* Main.storyboard */; };
@@ -17,7 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		960811BE22A3F25300322F19 /* FrozenListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrozenListViewController.swift; sourceTree = "<group>"; };
+		962C3AD422A4ED8C004AC250 /* FrozenListiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrozenListiViewController.swift; sourceTree = "<group>"; };
 		96A9F78222A3B0DD00B01C8A /* Refrig.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Refrig.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96A9F78522A3B0DD00B01C8A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		96A9F78722A3B0DD00B01C8A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -64,8 +64,8 @@
 				96A9F78C22A3B0DE00B01C8A /* Assets.xcassets */,
 				96A9F78E22A3B0DE00B01C8A /* LaunchScreen.storyboard */,
 				96A9F79122A3B0DE00B01C8A /* Info.plist */,
-				960811BE22A3F25300322F19 /* FrozenListViewController.swift */,
 				96A9F79922A3BB2400B01C8A /* RefrigeListViewController.swift */,
+				962C3AD422A4ED8C004AC250 /* FrozenListiViewController.swift */,
 			);
 			path = Refrig;
 			sourceTree = "<group>";
@@ -141,9 +141,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				960811BF22A3F25300322F19 /* FrozenListViewController.swift in Sources */,
 				96A9F79A22A3BB2400B01C8A /* RefrigeListViewController.swift in Sources */,
 				96A9F78822A3B0DD00B01C8A /* ViewController.swift in Sources */,
+				962C3AD522A4ED8C004AC250 /* FrozenListiViewController.swift in Sources */,
 				96A9F78622A3B0DD00B01C8A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
