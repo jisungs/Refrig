@@ -14,7 +14,7 @@ class FrozenListViewController : UIViewController, UITableViewDelegate, UITableV
     
     @IBOutlet weak var FrozenTableView: UITableView!
     
-    let FrozenItemArray = ["Ice", "shrimp", "dumpings"]
+    var FrozenItemArray = ["Ice", "shrimp", "dumpings"]
     
     override func viewDidLoad() {
         super .viewDidLoad()
@@ -68,5 +68,17 @@ class FrozenListViewController : UIViewController, UITableViewDelegate, UITableV
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
+    //MARK - Remove cell using swipe action
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == UITableViewCell.EditingStyle.delete {
+            FrozenItemArray.remove(at: indexPath.row)
+            
+            FrozenTableView.reloadData()
+            
+            
+        }
+    }
     
 }
