@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 
-class FrozenListViewController : UIViewController, UITableViewDelegate, UITableViewDataSource {
+class FrozenListViewController : UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
     @IBOutlet weak var FrozenTableView: UITableView!
     
@@ -21,6 +21,20 @@ class FrozenListViewController : UIViewController, UITableViewDelegate, UITableV
         
         FrozenTableView.delegate = self
         FrozenTableView.dataSource = self
+    }
+    
+    //When touch outside of keyboard it reset the position
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    
+    
+    //when Retrun input occuerd the keyboard is reset 
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        
+        return true
     }
     
     
