@@ -22,13 +22,14 @@ class FrozenListViewController : UIViewController, UITableViewDelegate, UITableV
         FrozenTableView.delegate = self
         FrozenTableView.dataSource = self
         
-        let add = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: nil)
+        let add = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(self.addButtonPreesed(sender:)))
         self.navigationItem.rightBarButtonItem = add
+
         
         let addButton = UIButton()
         //btn1.setImage(<#T##image: UIImage?##UIImage?#>, for: <#T##UIControl.State#>)
         addButton.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
-        addButton.addTarget(self, action: #selector(self.addButtonPreesed(sender:)), for: .touchUpInside)
+        addButton.addTarget(self, action: #selector(self.addButtonPreesed(sender:)), for: .touchDown)
         
     }
     
@@ -91,7 +92,7 @@ class FrozenListViewController : UIViewController, UITableViewDelegate, UITableV
     
     //MARK - Add new Item
     
-    @objc func addButtonPreesed(sender: UIButton){
+    @objc func addButtonPreesed(sender: UIBarButtonItem){
         let alert = UIAlertController(title: "Add New Item", message: "", preferredStyle: .alert)
         
         let action = UIAlertAction(title: "Add Item", style: .default) { (action) in
@@ -101,6 +102,8 @@ class FrozenListViewController : UIViewController, UITableViewDelegate, UITableV
         alert.addAction(action)
         
         present(alert, animated: true, completion: nil)
+        
+        print("Success")
     }
     
     

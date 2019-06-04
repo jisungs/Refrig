@@ -18,6 +18,7 @@ class ViewController: UIViewController {
     
     @IBAction func frozen(_ sender: Any) {
         //self.performSegue(withIdentifier: "frozen", sender: self)
+        print("Success")
     }
     
  
