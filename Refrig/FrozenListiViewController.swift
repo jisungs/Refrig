@@ -21,6 +21,15 @@ class FrozenListViewController : UIViewController, UITableViewDelegate, UITableV
         
         FrozenTableView.delegate = self
         FrozenTableView.dataSource = self
+        
+        let add = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: nil)
+        self.navigationItem.rightBarButtonItem = add
+        
+        let addButton = UIButton()
+        //btn1.setImage(<#T##image: UIImage?##UIImage?#>, for: <#T##UIControl.State#>)
+        addButton.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+        addButton.addTarget(self, action: #selector(self.addButtonPreesed(sender:)), for: .touchUpInside)
+        
     }
     
     //When touch outside of keyboard it reset the position
@@ -77,8 +86,22 @@ class FrozenListViewController : UIViewController, UITableViewDelegate, UITableV
             
             FrozenTableView.reloadData()
             
-            
         }
     }
+    
+    //MARK - Add new Item
+    
+    @objc func addButtonPreesed(sender: UIButton){
+        let alert = UIAlertController(title: "Add New Item", message: "", preferredStyle: .alert)
+        
+        let action = UIAlertAction(title: "Add Item", style: .default) { (action) in
+            print("Success")
+        }
+        
+        alert.addAction(action)
+        
+        present(alert, animated: true, completion: nil)
+    }
+    
     
 }

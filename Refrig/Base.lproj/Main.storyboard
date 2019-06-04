@@ -61,7 +61,7 @@
                                     <color key="titleShadowColor" red="0.0078431372550000003" green="0.70196078429999997" blue="0.89411764709999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="ApS-aM-7F7" kind="show" id="lxX-kg-jei"/>
+                                    <segue destination="ApS-aM-7F7" kind="show" id="c6a-Ys-jWH"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -77,16 +77,18 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="IX8-HN-2Pf"/>
+                    <navigationItem key="navigationItem" id="IX8-HN-2Pf">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="JAI-sr-pas"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="518.84057971014499" y="158.70535714285714"/>
         </scene>
-        <!--Frozen List View Controller-->
+        <!--Frozen-->
         <scene sceneID="WE5-eV-r11">
             <objects>
-                <viewController id="ApS-aM-7F7" customClass="FrozenListViewController" customModule="Refrig" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Frozen" id="ApS-aM-7F7" customClass="FrozenListViewController" customModule="Refrig" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WoL-G7-7Xb">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -105,27 +107,18 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FMC-Gy-ZbT">
-                                <rect key="frame" x="0.0" y="813" width="414" height="83"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <items>
-                                    <tabBarItem systemItem="history" id="Fd5-mI-4Is"/>
-                                    <tabBarItem systemItem="featured" id="AQQ-nU-BNX"/>
-                                </items>
-                            </tabBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="FMC-Gy-ZbT" firstAttribute="leading" secondItem="Y7O-5x-SkM" secondAttribute="leading" id="8GS-6p-p8T"/>
-                            <constraint firstItem="FMC-Gy-ZbT" firstAttribute="trailing" secondItem="Y7O-5x-SkM" secondAttribute="trailing" id="EI9-Xi-Mlm"/>
-                            <constraint firstItem="FMC-Gy-ZbT" firstAttribute="top" secondItem="ibY-fT-Uz1" secondAttribute="bottom" id="FJ1-Gd-F4p"/>
-                            <constraint firstItem="ibY-fT-Uz1" firstAttribute="top" secondItem="Y7O-5x-SkM" secondAttribute="top" id="G5X-pI-dxd"/>
-                            <constraint firstItem="Y7O-5x-SkM" firstAttribute="trailing" secondItem="ibY-fT-Uz1" secondAttribute="trailing" id="Jub-kj-d93"/>
-                            <constraint firstAttribute="bottom" secondItem="FMC-Gy-ZbT" secondAttribute="bottom" id="R1S-qY-Dsx"/>
-                            <constraint firstItem="ibY-fT-Uz1" firstAttribute="leading" secondItem="Y7O-5x-SkM" secondAttribute="leading" id="uQd-Dd-ZHh"/>
+                            <constraint firstItem="ibY-fT-Uz1" firstAttribute="top" secondItem="Y7O-5x-SkM" secondAttribute="top" id="ITp-It-tWK"/>
+                            <constraint firstItem="ibY-fT-Uz1" firstAttribute="leading" secondItem="Y7O-5x-SkM" secondAttribute="leading" id="OuN-bY-H0R"/>
+                            <constraint firstItem="ibY-fT-Uz1" firstAttribute="bottom" secondItem="Y7O-5x-SkM" secondAttribute="bottom" id="vQ0-2J-2ay"/>
+                            <constraint firstItem="ibY-fT-Uz1" firstAttribute="trailing" secondItem="Y7O-5x-SkM" secondAttribute="trailing" id="znF-fQ-MyL"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Y7O-5x-SkM"/>
                     </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="FrozenTableView" destination="ibY-fT-Uz1" id="GfW-8Z-vJS"/>
                     </connections>
@@ -178,6 +171,8 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="p0m-95-YO2"/>
                     </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="table" destination="nmU-j2-nrM" id="S8B-Qy-8oP"/>
                     </connections>
