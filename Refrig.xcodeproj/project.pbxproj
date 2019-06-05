@@ -64,8 +64,8 @@
 				96A9F78C22A3B0DE00B01C8A /* Assets.xcassets */,
 				96A9F78E22A3B0DE00B01C8A /* LaunchScreen.storyboard */,
 				96A9F79122A3B0DE00B01C8A /* Info.plist */,
-				96A9F79922A3BB2400B01C8A /* RefrigeListViewController.swift */,
 				962C3AD422A4ED8C004AC250 /* FrozenListiViewController.swift */,
+				96A9F79922A3BB2400B01C8A /* RefrigeListViewController.swift */,
 			);
 			path = Refrig;
 			sourceTree = "<group>";

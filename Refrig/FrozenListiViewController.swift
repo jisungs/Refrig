@@ -24,13 +24,8 @@ class FrozenListViewController : UIViewController, UITableViewDelegate, UITableV
         
         let add = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(self.addButtonPreesed(sender:)))
         self.navigationItem.rightBarButtonItem = add
+        add.tintColor = UIColor.white
 
-        
-        let addButton = UIButton()
-        //btn1.setImage(<#T##image: UIImage?##UIImage?#>, for: <#T##UIControl.State#>)
-        addButton.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
-        addButton.addTarget(self, action: #selector(self.addButtonPreesed(sender:)), for: .touchDown)
-        
     }
     
     //When touch outside of keyboard it reset the position
@@ -93,17 +88,27 @@ class FrozenListViewController : UIViewController, UITableViewDelegate, UITableV
     //MARK - Add new Item
     
     @objc func addButtonPreesed(sender: UIBarButtonItem){
+        
+        var textField = UITextField()
+        
         let alert = UIAlertController(title: "Add New Item", message: "", preferredStyle: .alert)
         
         let action = UIAlertAction(title: "Add Item", style: .default) { (action) in
-            print("Success")
+            
+            self.FrozenItemArray.append(textField.text ?? "new Item")
+            
+            self.FrozenTableView.reloadData()
+            
         }
         
         alert.addAction(action)
         
-        present(alert, animated: true, completion: nil)
+        alert.addTextField { (alertTextField) in
+            alertTextField.placeholder = "Create new Item"
+            textField = alertTextField
+        }
         
-        print("Success")
+        present(alert, animated: true, completion: nil)
     }
     
     
