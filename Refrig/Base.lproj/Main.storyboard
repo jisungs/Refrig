@@ -107,11 +107,22 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HaP-JX-jnx">
+                                <rect key="frame" x="0.0" y="847" width="414" height="49"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <items>
+                                    <tabBarItem systemItem="favorites" id="h1b-NT-Xte"/>
+                                    <tabBarItem systemItem="more" id="TVj-tm-fGx"/>
+                                </items>
+                            </tabBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="HaP-JX-jnx" firstAttribute="leading" secondItem="WoL-G7-7Xb" secondAttribute="leading" id="9ar-hY-rc5"/>
                             <constraint firstItem="ibY-fT-Uz1" firstAttribute="top" secondItem="Y7O-5x-SkM" secondAttribute="top" id="ITp-It-tWK"/>
                             <constraint firstItem="ibY-fT-Uz1" firstAttribute="leading" secondItem="Y7O-5x-SkM" secondAttribute="leading" id="OuN-bY-H0R"/>
+                            <constraint firstItem="Y7O-5x-SkM" firstAttribute="trailing" secondItem="HaP-JX-jnx" secondAttribute="trailing" id="Rx8-O2-QoI"/>
+                            <constraint firstAttribute="bottom" secondItem="HaP-JX-jnx" secondAttribute="bottom" id="cCv-Kd-Egg"/>
                             <constraint firstItem="ibY-fT-Uz1" firstAttribute="bottom" secondItem="Y7O-5x-SkM" secondAttribute="bottom" id="vQ0-2J-2ay"/>
                             <constraint firstItem="ibY-fT-Uz1" firstAttribute="trailing" secondItem="Y7O-5x-SkM" secondAttribute="trailing" id="znF-fQ-MyL"/>
                         </constraints>
