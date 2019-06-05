@@ -95,7 +95,10 @@ class FrozenListViewController : UIViewController, UITableViewDelegate, UITableV
         
         let action = UIAlertAction(title: "Add Item", style: .default) { (action) in
             
-            self.FrozenItemArray.append(textField.text ?? "new Item")
+            if let newItem = textField.text {
+                  self.FrozenItemArray.append(newItem)
+            }
+          
             
             self.FrozenTableView.reloadData()
             
