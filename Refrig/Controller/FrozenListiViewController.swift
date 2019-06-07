@@ -14,10 +14,23 @@ class FrozenListViewController : UIViewController, UITableViewDelegate, UITableV
     
     @IBOutlet weak var FrozenTableView: UITableView!
     
-    var FrozenItemArray = ["Ice", "shrimp", "dumpings"]
+    var FrozenItemArray = [Item]()
     
     override func viewDidLoad() {
         super .viewDidLoad()
+        
+        let newItem = Item()
+        newItem.title = "ICE"
+        FrozenItemArray.append(newItem)
+        
+        let newItem2 = Item()
+        newItem2.title = "Coffee"
+        FrozenItemArray.append(newItem2)
+        
+        let newItem3 = Item()
+        newItem3.title = "dumplings"
+        FrozenItemArray.append(newItem3)
+        
         
         FrozenTableView.delegate = self
         FrozenTableView.dataSource = self
@@ -52,7 +65,16 @@ class FrozenListViewController : UIViewController, UITableViewDelegate, UITableV
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "FrozenItemCell", for: indexPath)
         
-        cell.textLabel?.text = FrozenItemArray[indexPath.row]
+        
+         let item = FrozenItemArray[indexPath.row]
+        
+        cell.textLabel?.text = item.title
+        
+        
+        //Teneary Operation
+        // value = condition ? value 1 : value 2 
+        cell.accessoryType = item.done ? .checkmark : .none
+        
         
         return cell
         
@@ -64,11 +86,10 @@ class FrozenListViewController : UIViewController, UITableViewDelegate, UITableV
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //print(FrozenItemArray[indexPath.row])
         
-        if tableView.cellForRow(at: indexPath)?.accessoryType == .checkmark {
-            tableView.cellForRow(at: indexPath)?.accessoryType = .none
-        } else {
-            tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
-        }
+        //Toggling data modals property
+        FrozenItemArray[indexPath.row].done = !FrozenItemArray[indexPath.row].done
+        
+        FrozenTableView.reloadData()
         
         tableView.deselectRow(at: indexPath, animated: true)
     }
@@ -95,9 +116,11 @@ class FrozenListViewController : UIViewController, UITableViewDelegate, UITableV
         
         let action = UIAlertAction(title: "Add Item", style: .default) { (action) in
             
-            if let newItem = textField.text {
-                  self.FrozenItemArray.append(newItem)
-            }
+            
+          let newItem = Item()
+            newItem.title = textField.text!
+            
+            self.FrozenItemArray.append(newItem)
           
             
             self.FrozenTableView.reloadData()
