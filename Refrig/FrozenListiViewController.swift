@@ -25,6 +25,7 @@ class FrozenListViewController : UIViewController, UITableViewDelegate, UITableV
         let add = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(self.addButtonPreesed(sender:)))
         self.navigationItem.rightBarButtonItem = add
         add.tintColor = UIColor.white
+        
 
     }
     
