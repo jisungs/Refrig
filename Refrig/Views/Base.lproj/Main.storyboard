@@ -36,7 +36,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LMR-fp-QL5">
-                                <rect key="frame" x="47" y="343" width="320" height="200"/>
+                                <rect key="frame" x="47" y="393" width="320" height="200"/>
                                 <color key="backgroundColor" red="0.0" green="0.56284224989999998" blue="0.31881666180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="6If-yq-zSH"/>
@@ -50,10 +50,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gWG-Rg-ocr">
-                                <rect key="frame" x="47" y="138" width="320" height="200"/>
+                                <rect key="frame" x="47" y="188" width="320" height="200"/>
                                 <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="rRk-3G-5RL"/>
+                                    <constraint firstAttribute="height" constant="200" id="2kb-9o-nNg"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="53"/>
                                 <state key="normal" title="Frozen">
@@ -67,12 +67,11 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="LMR-fp-QL5" secondAttribute="bottom" constant="319" id="A2L-Z1-dMA"/>
+                            <constraint firstItem="gWG-Rg-ocr" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="5Pj-xn-sXl"/>
                             <constraint firstItem="gWG-Rg-ocr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="47" id="HCI-GP-AZV"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="gWG-Rg-ocr" secondAttribute="trailing" constant="47" id="QQx-yb-qGs"/>
                             <constraint firstItem="LMR-fp-QL5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="47" id="RUq-wi-n0L"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="LMR-fp-QL5" secondAttribute="trailing" constant="47" id="hUk-NZ-7Se"/>
-                            <constraint firstItem="gWG-Rg-ocr" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="qi4-ba-qvB"/>
                             <constraint firstItem="LMR-fp-QL5" firstAttribute="top" secondItem="gWG-Rg-ocr" secondAttribute="bottom" constant="5" id="qyk-1Y-u6b"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
