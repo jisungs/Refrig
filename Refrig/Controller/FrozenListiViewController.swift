@@ -63,22 +63,18 @@ class FrozenListViewController : UIViewController, UITableViewDelegate, UITableV
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "FrozenItemCell", for: indexPath)
-        
+         let cell = tableView.dequeueReusableCell(withIdentifier: "FrozenItemCell", for: indexPath)
         
          let item = FrozenItemArray[indexPath.row]
         
         cell.textLabel?.text = item.title
         
-        
         //Teneary Operation
         // value = condition ? value 1 : value 2 
         cell.accessoryType = item.done ? .checkmark : .none
         
-        
         return cell
-        
-        
+    
     }
     
     //MARK - TableView Delegate Method
@@ -121,10 +117,8 @@ class FrozenListViewController : UIViewController, UITableViewDelegate, UITableV
             newItem.title = textField.text!
             
             self.FrozenItemArray.append(newItem)
-          
             
             self.FrozenTableView.reloadData()
-            
         }
         
         alert.addAction(action)
@@ -134,7 +128,17 @@ class FrozenListViewController : UIViewController, UITableViewDelegate, UITableV
             textField = alertTextField
         }
         
-        present(alert, animated: true, completion: nil)
+       // present(alert, animated: true, completion: nil)
+        
+        //When alert window is opened touch outside cancel action is activated
+        self.present(alert, animated: true) {
+            alert.view.superview?.isUserInteractionEnabled = true
+            alert.view.superview?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.alertControllerBackgroundTapped)))
+        }
+    }
+    
+    @objc func alertControllerBackgroundTapped(){
+        self.dismiss(animated: true, completion: nil)
     }
     
     
