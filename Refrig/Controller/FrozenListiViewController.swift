@@ -16,22 +16,12 @@ class FrozenListViewController : UIViewController, UITableViewDelegate, UITableV
     @IBOutlet weak var FrozenTableView: UITableView!
     
     var FrozenItemArray = [Item]()
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     override func viewDidLoad() {
         super .viewDidLoad()
         
-        let newItem = Item()
-        newItem.title = "ICE"
-        FrozenItemArray.append(newItem)
-        
-        let newItem2 = Item()
-        newItem2.title = "Coffee"
-        FrozenItemArray.append(newItem2)
-        
-        let newItem3 = Item()
-        newItem3.title = "dumplings"
-        FrozenItemArray.append(newItem3)
-        
+        print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
         
         FrozenTableView.delegate = self
         FrozenTableView.dataSource = self
@@ -39,6 +29,8 @@ class FrozenListViewController : UIViewController, UITableViewDelegate, UITableV
         let add = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(self.addButtonPreesed(sender:)))
         self.navigationItem.rightBarButtonItem = add
         add.tintColor = UIColor.white
+        
+        loadItems()
         
 
     }
@@ -87,7 +79,7 @@ class FrozenListViewController : UIViewController, UITableViewDelegate, UITableV
         //Toggling data modals property
         FrozenItemArray[indexPath.row].done = !FrozenItemArray[indexPath.row].done
         
-        FrozenTableView.reloadData()
+       saveItem()
         
         tableView.deselectRow(at: indexPath, animated: true)
     }
@@ -97,9 +89,9 @@ class FrozenListViewController : UIViewController, UITableViewDelegate, UITableV
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
         if editingStyle == UITableViewCell.EditingStyle.delete {
+            self.context.delete(FrozenItemArray[indexPath.row])
             FrozenItemArray.remove(at: indexPath.row)
-            
-            FrozenTableView.reloadData()
+            saveItem()
             
         }
     }
@@ -114,13 +106,14 @@ class FrozenListViewController : UIViewController, UITableViewDelegate, UITableV
         
         let action = UIAlertAction(title: "Add Item", style: .default) { (action) in
             
-            
-          let newItem = Item()
+        
+          let newItem = Item(context: self.context)
             newItem.title = textField.text!
+            newItem.done = false
             
             self.FrozenItemArray.append(newItem)
             
-            self.FrozenTableView.reloadData()
+            self.saveItem()
         }
         
         alert.addAction(action)
@@ -143,5 +136,32 @@ class FrozenListViewController : UIViewController, UITableViewDelegate, UITableV
         self.dismiss(animated: true, completion: nil)
     }
     
+    //MARK - Model Manupulatation Methods
     
-}
+    func saveItem(){
+        do{
+            
+            try context.save()
+            
+        }catch{
+            print("Erro saving context \(error)")
+        }
+        
+        self.FrozenTableView.reloadData()
+    }
+    
+    func loadItems(){
+        let request : NSFetchRequest<Item> = Item.fetchRequest()
+        do {
+           FrozenItemArray = try context.fetch(request)
+        }catch {
+            print("Error fetching data from context \(error)")
+        }
+       
+        
+        
+        
+    }
+    
+    
+}// End of Frozen view Controller
