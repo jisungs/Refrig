@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		961F774522AF68E000C1D53E /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 961F774322AF68E000C1D53E /* DataModel.xcdatamodeld */; };
+		961F774722AF850400C1D53E /* DeatilsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961F774622AF850400C1D53E /* DeatilsViewController.swift */; };
 		962C3AD522A4ED8C004AC250 /* FrozenListiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962C3AD422A4ED8C004AC250 /* FrozenListiViewController.swift */; };
 		96A9F78622A3B0DD00B01C8A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A9F78522A3B0DD00B01C8A /* AppDelegate.swift */; };
 		96A9F78822A3B0DD00B01C8A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A9F78722A3B0DD00B01C8A /* ViewController.swift */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		961F774422AF68E000C1D53E /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
+		961F774622AF850400C1D53E /* DeatilsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeatilsViewController.swift; sourceTree = "<group>"; };
 		962C3AD422A4ED8C004AC250 /* FrozenListiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrozenListiViewController.swift; sourceTree = "<group>"; };
 		96A9F78222A3B0DD00B01C8A /* Refrig.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Refrig.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96A9F78522A3B0DD00B01C8A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -47,6 +49,7 @@
 				96A9F78722A3B0DD00B01C8A /* ViewController.swift */,
 				962C3AD422A4ED8C004AC250 /* FrozenListiViewController.swift */,
 				96A9F79922A3BB2400B01C8A /* RefrigeListViewController.swift */,
+				961F774622AF850400C1D53E /* DeatilsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -179,6 +182,7 @@
 				96A9F79A22A3BB2400B01C8A /* RefrigeListViewController.swift in Sources */,
 				96A9F78822A3B0DD00B01C8A /* ViewController.swift in Sources */,
 				961F774522AF68E000C1D53E /* DataModel.xcdatamodeld in Sources */,
+				961F774722AF850400C1D53E /* DeatilsViewController.swift in Sources */,
 				962C3AD522A4ED8C004AC250 /* FrozenListiViewController.swift in Sources */,
 				96A9F78622A3B0DD00B01C8A /* AppDelegate.swift in Sources */,
 			);
