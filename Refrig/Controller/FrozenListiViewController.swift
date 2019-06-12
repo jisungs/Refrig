@@ -23,8 +23,8 @@ class FrozenListViewController : UIViewController, UITableViewDelegate, UITableV
         
         print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
         
-        FrozenTableView.delegate = self
-        FrozenTableView.dataSource = self
+//        FrozenTableView.delegate = self
+//        FrozenTableView.dataSource = self
       
         
         

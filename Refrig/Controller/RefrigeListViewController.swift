@@ -15,8 +15,8 @@ class RefrigeListViewController : UIViewController, UITableViewDelegate, UITable
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        table.delegate = self
-        table.dataSource = self
+//        table.delegate = self
+//        table.dataSource = self
         
     }
     
