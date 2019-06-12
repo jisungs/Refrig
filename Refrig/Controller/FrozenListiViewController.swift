@@ -11,7 +11,7 @@ import UIKit
 import CoreData
 
 
-class FrozenListViewController : UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
+class FrozenListViewController : UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate{
     
     @IBOutlet weak var FrozenTableView: UITableView!
     
@@ -25,6 +25,8 @@ class FrozenListViewController : UIViewController, UITableViewDelegate, UITableV
         
         FrozenTableView.delegate = self
         FrozenTableView.dataSource = self
+      
+        
         
         let add = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(self.addButtonPreesed(sender:)))
         self.navigationItem.rightBarButtonItem = add
@@ -150,14 +152,16 @@ class FrozenListViewController : UIViewController, UITableViewDelegate, UITableV
         self.FrozenTableView.reloadData()
     }
     
-    func loadItems(){
-        let request : NSFetchRequest<Item> = Item.fetchRequest()
+    func loadItems(with request : NSFetchRequest<Item> = Item.fetchRequest()){
+       // let request : NSFetchRequest<Item> = Item.fetchRequest()
+       
         do {
            FrozenItemArray = try context.fetch(request)
         }catch {
             print("Error fetching data from context \(error)")
         }
        
+        FrozenTableView.reloadData()
         
         
         
@@ -165,3 +169,23 @@ class FrozenListViewController : UIViewController, UITableViewDelegate, UITableV
     
     
 }// End of Frozen view Controller
+
+
+//MARK :- Search bar method
+
+extension FrozenListViewController: UISearchBarDelegate {
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
+        let request : NSFetchRequest<Item> = Item.fetchRequest()
+        
+        request.predicate = NSPredicate(format: "title CONTAINS[cd]", searchBar.text! )
+        
+        request.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
+        
+        loadItems(with: request)
+        
+        
+    }
+    
+}
