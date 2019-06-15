@@ -23,10 +23,6 @@ class FrozenListViewController : UIViewController, UITableViewDelegate, UITableV
         
         print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
         
-//        FrozenTableView.delegate = self
-//        FrozenTableView.dataSource = self
-      
-        
         
         let add = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(self.addButtonPreesed(sender:)))
         self.navigationItem.rightBarButtonItem = add
