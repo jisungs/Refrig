@@ -13,6 +13,8 @@ import CoreData
 
 class FrozenListViewController : UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate{
     
+    let alertService = AlertService()
+    
     @IBOutlet weak var FrozenTableView: UITableView!
     
     var FrozenItemArray = [Item]()
@@ -98,35 +100,37 @@ class FrozenListViewController : UIViewController, UITableViewDelegate, UITableV
     
     @objc func addButtonPreesed(sender: UIBarButtonItem){
         
-        var textField = UITextField()
+        //var textField = UITextField()
         
-        let alert = UIAlertController(title: "Add New Item", message: "", preferredStyle: .alert)
+        let alertVC = alertService.alert()
         
-        let action = UIAlertAction(title: "Add Item", style: .default) { (action) in
-            
+       // let alert = UIAlertController(title: "Add New Item", message: "", preferredStyle: .alert)
         
-          let newItem = Item(context: self.context)
-            newItem.title = textField.text!
-            newItem.done = false
-            
-            self.FrozenItemArray.append(newItem)
-            
-            self.saveItem()
-        }
+//        let action = UIAlertAction(title: "Add Item", style: .default) { (action) in
+//
+//
+//          let newItem = Item(context: self.context)
+//            newItem.title = textField.text!
+//            newItem.done = false
+//
+//            self.FrozenItemArray.append(newItem)
+//            
+//            self.saveItem()
+//        }
         
-        alert.addAction(action)
-        
-        alert.addTextField { (alertTextField) in
-            alertTextField.placeholder = "Create new Item"
-            textField = alertTextField
-        }
+//        alert.addAction(action)
+//
+//        alert.addTextField { (alertTextField) in
+//            alertTextField.placeholder = "Create new Item"
+//            textField = alertTextField
+//        }
         
        // present(alert, animated: true, completion: nil)
         
         //When alert window is opened touch outside cancel action is activated
-        self.present(alert, animated: true) {
-            alert.view.superview?.isUserInteractionEnabled = true
-            alert.view.superview?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.alertControllerBackgroundTapped)))
+        self.present(alertVC, animated: true) {
+            alertVC.view.superview?.isUserInteractionEnabled = true
+            alertVC.view.superview?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.alertControllerBackgroundTapped)))
         }
     }
     

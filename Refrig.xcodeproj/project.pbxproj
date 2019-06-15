@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		961195FD22B4C7A300AA2B6E /* AlertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961195FC22B4C7A300AA2B6E /* AlertService.swift */; };
 		961F774522AF68E000C1D53E /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 961F774322AF68E000C1D53E /* DataModel.xcdatamodeld */; };
 		961F774722AF850400C1D53E /* DeatilsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961F774622AF850400C1D53E /* DeatilsViewController.swift */; };
 		962C3AD522A4ED8C004AC250 /* FrozenListiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962C3AD422A4ED8C004AC250 /* FrozenListiViewController.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		961195FC22B4C7A300AA2B6E /* AlertService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertService.swift; sourceTree = "<group>"; };
 		961F774422AF68E000C1D53E /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		961F774622AF850400C1D53E /* DeatilsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeatilsViewController.swift; sourceTree = "<group>"; };
 		962C3AD422A4ED8C004AC250 /* FrozenListiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrozenListiViewController.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				96A9F78522A3B0DD00B01C8A /* AppDelegate.swift */,
+				961195FC22B4C7A300AA2B6E /* AlertService.swift */,
 				9668AA2E22AA3A2B0018D0B4 /* Controller */,
 				9668AA3322AA3B740018D0B4 /* Views */,
 				9668AA2F22AA3A480018D0B4 /* SupportingFiles */,
@@ -192,6 +195,7 @@
 				961F774522AF68E000C1D53E /* DataModel.xcdatamodeld in Sources */,
 				961F774722AF850400C1D53E /* DeatilsViewController.swift in Sources */,
 				962C3AD522A4ED8C004AC250 /* FrozenListiViewController.swift in Sources */,
+				961195FD22B4C7A300AA2B6E /* AlertService.swift in Sources */,
 				96A9F78622A3B0DD00B01C8A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

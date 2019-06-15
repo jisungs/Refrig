@@ -6,8 +6,25 @@
 //  Copyright © 2019 The book. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
-class AlertViewController {
+class AlertViewController: UIViewController {
+    
+    @IBOutlet weak var StorageName: UILabel!
+    
+    @IBOutlet weak var itemName: UITextField!
+    
+    @IBOutlet weak var exDate: UIDatePicker!
+    
+    
+    override func viewDidLoad(){
+        
+    }
+    
+    @IBAction func camera(_ sender: Any) {
+    }
+    
+    @IBAction func add(_ sender: Any) {
+    }
     
 }
