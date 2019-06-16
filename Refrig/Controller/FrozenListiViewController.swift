@@ -6,7 +6,6 @@
 //  Copyright © 2019 The book. All rights reserved.
 //
 
-import Foundation
 import UIKit
 import CoreData
 
