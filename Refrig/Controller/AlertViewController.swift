@@ -11,6 +11,8 @@ import CoreData
 
 class AlertViewController: UIViewController {
     
+    let FrozenListVC = FrozenListViewController()
+    
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     @IBOutlet weak var StorageName: UILabel!
@@ -36,6 +38,7 @@ class AlertViewController: UIViewController {
         newItem.done = false
         newItem.exDate = Date()
         
+       
         FrozenListViewController().FrozenItemArray.append(newItem)
         
         saveItem()
@@ -50,7 +53,15 @@ class AlertViewController: UIViewController {
             print("Error saving context \(error)")
         }
         
-        FrozenListViewController().FrozenTableView.reloadData()
+        let FrozenListTable = FrozenListViewController().FrozenTableView
+        
+        if FrozenListTable != nil {
+            FrozenListTable?.reloadData()
+        }else {
+            print("Error when reload data")
+        }
+        
+       // FrozenListViewController().FrozenTableView.reloadData()
     }
     
     func loadItems(with request: NSFetchRequest<Item> = Item.fetchRequest()){
