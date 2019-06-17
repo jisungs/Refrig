@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 
 
-class ViewController: UIViewController {
+class StorageViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
