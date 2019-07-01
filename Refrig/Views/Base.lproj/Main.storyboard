@@ -77,7 +77,12 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="IX8-HN-2Pf">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="JAI-sr-pas"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="JAI-sr-pas">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="Add:" destination="BYZ-38-t0r" id="I1R-L8-WfO"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
