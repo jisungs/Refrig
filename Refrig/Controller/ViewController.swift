@@ -36,8 +36,9 @@ class StorageViewController: UIViewController {
     }
     
     
-    @IBAction func action(_ sender: Any) {
-        //performSegue(withIdentifier: "goToItem", sender: nil)
+    @IBAction func action(_ sender: UIButton) {
+        performSegue(withIdentifier: "goToItem", sender: nil)
+        print(sender.tag)
         
     }
     

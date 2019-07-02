@@ -45,6 +45,9 @@
                                 <state key="normal" title="Refrig">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="action:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7da-f0-cde"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gWG-Rg-ocr">
                                 <rect key="frame" x="47" y="98" width="320" height="200"/>
@@ -58,8 +61,7 @@
                                     <color key="titleShadowColor" red="0.0078431372550000003" green="0.70196078429999997" blue="0.89411764709999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="action:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tiL-8V-TdT"/>
-                                    <segue destination="ApS-aM-7F7" kind="show" identifier="goToItem" id="c6a-Ys-jWH"/>
+                                    <action selector="action:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7D9-3X-zkv"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -82,6 +84,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="ApS-aM-7F7" kind="show" identifier="goToItem" id="nt8-up-qKV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
