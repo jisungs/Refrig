@@ -36,10 +36,11 @@ class StorageViewController: UIViewController {
     }
     
     
-    @IBAction func frozen(_ sender: Any) {
-        //self.performSegue(withIdentifier: "frozen", sender: self)
-        print("Success")
+    @IBAction func action(_ sender: Any) {
+        //performSegue(withIdentifier: "goToItem", sender: nil)
+        
     }
+    
     
     //Data Manipulation
     
@@ -59,6 +60,17 @@ class StorageViewController: UIViewController {
         } catch {
             print("Error loading category \(error)")
         }
+    }
+    
+    //MARK:- Delegate Method
+    
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destinationVC = segue.destination as! FrozenListViewController
+        
+        
+        
     }
     
     
@@ -84,7 +96,7 @@ class StorageViewController: UIViewController {
             self.view.addSubview(button)
             
             self.category.append(newCategory)
-            
+    
             
             
             self.saveCategory()

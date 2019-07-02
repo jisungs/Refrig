@@ -14,7 +14,14 @@ class FrozenListViewController : UIViewController, UITableViewDelegate, UITableV
     
     let alertService = AlertService()
     
+    var selectedStorage : Storage? {
+        didSet{
+            loadItems()
+        }
+    }
+    
     @IBOutlet weak var FrozenTableView: UITableView!
+    
     
     var FrozenItemArray = [Item]()
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -28,10 +35,6 @@ class FrozenListViewController : UIViewController, UITableViewDelegate, UITableV
         let add = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(self.addButtonPreesed(sender:)))
         self.navigationItem.rightBarButtonItem = add
         add.tintColor = UIColor.white
-        
-        loadItems()
-        
-
     }
     
     //When touch outside of keyboard it reset the position

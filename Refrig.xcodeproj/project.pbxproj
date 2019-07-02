@@ -18,7 +18,6 @@
 		96A9F78B22A3B0DD00B01C8A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96A9F78922A3B0DD00B01C8A /* Main.storyboard */; };
 		96A9F78D22A3B0DE00B01C8A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96A9F78C22A3B0DE00B01C8A /* Assets.xcassets */; };
 		96A9F79022A3B0DE00B01C8A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96A9F78E22A3B0DE00B01C8A /* LaunchScreen.storyboard */; };
-		96A9F79A22A3BB2400B01C8A /* RefrigeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A9F79922A3BB2400B01C8A /* RefrigeListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,7 +34,6 @@
 		96A9F78C22A3B0DE00B01C8A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		96A9F78F22A3B0DE00B01C8A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		96A9F79122A3B0DE00B01C8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		96A9F79922A3BB2400B01C8A /* RefrigeListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefrigeListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,7 +52,6 @@
 			children = (
 				96A9F78722A3B0DD00B01C8A /* ViewController.swift */,
 				962C3AD422A4ED8C004AC250 /* FrozenListiViewController.swift */,
-				96A9F79922A3BB2400B01C8A /* RefrigeListViewController.swift */,
 				961F774622AF850400C1D53E /* DeatilsViewController.swift */,
 				969837F822B358AB00841A8B /* AlertViewController.swift */,
 			);
@@ -189,7 +186,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				96A9F79A22A3BB2400B01C8A /* RefrigeListViewController.swift in Sources */,
 				969837F922B358AB00841A8B /* AlertViewController.swift in Sources */,
 				96A9F78822A3B0DD00B01C8A /* ViewController.swift in Sources */,
 				961F774522AF68E000C1D53E /* DataModel.xcdatamodeld in Sources */,
