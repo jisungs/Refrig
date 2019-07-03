@@ -18,9 +18,12 @@
 		96A9F78B22A3B0DD00B01C8A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96A9F78922A3B0DD00B01C8A /* Main.storyboard */; };
 		96A9F78D22A3B0DE00B01C8A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96A9F78C22A3B0DE00B01C8A /* Assets.xcassets */; };
 		96A9F79022A3B0DE00B01C8A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96A9F78E22A3B0DE00B01C8A /* LaunchScreen.storyboard */; };
+		EA19D40B005908D38D03F506 /* Pods_Refrig.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 674F94AF7C16A9183F931E04 /* Pods_Refrig.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		674F94AF7C16A9183F931E04 /* Pods_Refrig.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Refrig.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E17F7200FDFDA9B5036DF91 /* Pods-Refrig.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Refrig.release.xcconfig"; path = "Target Support Files/Pods-Refrig/Pods-Refrig.release.xcconfig"; sourceTree = "<group>"; };
 		961195FC22B4C7A300AA2B6E /* AlertService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertService.swift; sourceTree = "<group>"; };
 		961F774422AF68E000C1D53E /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		961F774622AF850400C1D53E /* DeatilsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeatilsViewController.swift; sourceTree = "<group>"; };
@@ -34,6 +37,7 @@
 		96A9F78C22A3B0DE00B01C8A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		96A9F78F22A3B0DE00B01C8A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		96A9F79122A3B0DE00B01C8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D67C23167985D29B201CB604 /* Pods-Refrig.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Refrig.debug.xcconfig"; path = "Target Support Files/Pods-Refrig/Pods-Refrig.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,12 +45,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA19D40B005908D38D03F506 /* Pods_Refrig.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2584479C35483926848293D7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				674F94AF7C16A9183F931E04 /* Pods_Refrig.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		9668AA2E22AA3A2B0018D0B4 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -89,6 +102,8 @@
 			children = (
 				96A9F78422A3B0DD00B01C8A /* Refrig */,
 				96A9F78322A3B0DD00B01C8A /* Products */,
+				F3FCE7079165FC2D47A148A1 /* Pods */,
+				2584479C35483926848293D7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -114,6 +129,16 @@
 			path = Refrig;
 			sourceTree = "<group>";
 		};
+		F3FCE7079165FC2D47A148A1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D67C23167985D29B201CB604 /* Pods-Refrig.debug.xcconfig */,
+				8E17F7200FDFDA9B5036DF91 /* Pods-Refrig.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -121,9 +146,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 96A9F79422A3B0DE00B01C8A /* Build configuration list for PBXNativeTarget "Refrig" */;
 			buildPhases = (
+				A4C8F1095B22C370178DAA64 /* [CP] Check Pods Manifest.lock */,
 				96A9F77E22A3B0DD00B01C8A /* Sources */,
 				96A9F77F22A3B0DD00B01C8A /* Frameworks */,
 				96A9F78022A3B0DD00B01C8A /* Resources */,
+				639C6E49D7A48D7EE5CCA603 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -180,6 +207,55 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		639C6E49D7A48D7EE5CCA603 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Refrig/Pods-Refrig-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Refrig/Pods-Refrig-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A4C8F1095B22C370178DAA64 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Refrig-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		96A9F77E22A3B0DD00B01C8A /* Sources */ = {
@@ -336,6 +412,7 @@
 		};
 		96A9F79522A3B0DE00B01C8A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D67C23167985D29B201CB604 /* Pods-Refrig.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -354,6 +431,7 @@
 		};
 		96A9F79622A3B0DE00B01C8A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8E17F7200FDFDA9B5036DF91 /* Pods-Refrig.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
