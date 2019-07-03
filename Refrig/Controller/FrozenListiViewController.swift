@@ -11,6 +11,22 @@ import CoreData
 
 
 class FrozenListViewController : UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate{
+  
+    
+    
+    override func viewDidLoad() {
+        super .viewDidLoad()
+        
+        print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
+        
+        
+        let add = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(self.addButtonPreesed(sender:)))
+        self.navigationItem.rightBarButtonItem = add
+        add.tintColor = UIColor.white
+        
+    }
+    
+
     
     let alertService = AlertService()
     
@@ -26,16 +42,7 @@ class FrozenListViewController : UIViewController, UITableViewDelegate, UITableV
     var FrozenItemArray = [Item]()
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
-    override func viewDidLoad() {
-        super .viewDidLoad()
-        
-        print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
-        
-        
-        let add = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(self.addButtonPreesed(sender:)))
-        self.navigationItem.rightBarButtonItem = add
-        add.tintColor = UIColor.white
-    }
+    
     
     //When touch outside of keyboard it reset the position
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

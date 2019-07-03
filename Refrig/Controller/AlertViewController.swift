@@ -10,6 +10,30 @@ import UIKit
 import CoreData
 
 class AlertViewController: UIViewController {
+   
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    
+    //Sliding up whed keyboard appeared
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0 {
+                self.view.frame.origin.y -= keyboardSize.height - 200
+                //self.view.frame.origin.y -= keyboardSize.height
+            }
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
+    }
     
     let FrozenListVC = FrozenListViewController()
     
@@ -21,10 +45,6 @@ class AlertViewController: UIViewController {
     
     @IBOutlet weak var exDate: UIDatePicker!
     
-    
-    override func viewDidLoad(){
-        
-    }
     
     @IBAction func camera(_ sender: Any) {
         
