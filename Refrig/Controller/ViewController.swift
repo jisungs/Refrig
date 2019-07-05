@@ -15,7 +15,7 @@ class StorageViewController: UIViewController {
     
     let realm = try! Realm()
     
-    var categories : Results<Storage>!
+    var categories : Results<Storage>?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +40,10 @@ class StorageViewController: UIViewController {
     
     @IBAction func action(_ sender: UIButton) {
         performSegue(withIdentifier: "goToItem", sender: nil)
-        print(sender.tag)
+       
+        if let buttonTitle = sender.title(for: .normal){
+            print(buttonTitle)
+        }
         
     }
     
@@ -50,7 +53,7 @@ class StorageViewController: UIViewController {
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-       // let destinationVC = segue.destination as! FrozenListViewController
+        let destinationVC = segue.destination as! FrozenListViewController
         
     }
     

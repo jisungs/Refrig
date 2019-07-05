@@ -48,7 +48,8 @@ class FrozenListViewController : UIViewController, UITableViewDelegate, UITableV
     @IBOutlet weak var FrozenTableView: UITableView!
     
     
-    var FrozenItemArray = [Item]()
+    var ItemArray : Results<Item>?
+    
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     
@@ -70,20 +71,20 @@ class FrozenListViewController : UIViewController, UITableViewDelegate, UITableV
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return FrozenItemArray.count
+        return ItemArray?.count ?? 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
          let cell = tableView.dequeueReusableCell(withIdentifier: "FrozenItemCell", for: indexPath)
         
-         let item = FrozenItemArray[indexPath.row]
+         let item = ItemArray?[indexPath.row]
         
-        cell.textLabel?.text = item.title
+        cell.textLabel?.text = item?.title ?? "There is no items in the storage"
         
         //Teneary Operation
         // value = condition ? value 1 : value 2 
-        cell.accessoryType = item.done ? .checkmark : .none
+        cell.accessoryType = item?.done ?? false ? .checkmark : .none
         
         return cell
     
@@ -95,7 +96,7 @@ class FrozenListViewController : UIViewController, UITableViewDelegate, UITableV
         //print(FrozenItemArray[indexPath.row])
         
         //Toggling data modals property
-        FrozenItemArray[indexPath.row].done = !FrozenItemArray[indexPath.row].done
+        ItemArray?[indexPath.row].done = !ItemArray?[indexPath.row].done
         
        //saveItem()
         
@@ -108,7 +109,7 @@ class FrozenListViewController : UIViewController, UITableViewDelegate, UITableV
         
         if editingStyle == UITableViewCell.EditingStyle.delete {
             //self.context.delete(FrozenItemArray[indexPath.row])
-            FrozenItemArray.remove(at: indexPath.row)
+            ItemArray.remove(at: indexPath.row)
            // save(item : Item)
             
         }
