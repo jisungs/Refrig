@@ -7,11 +7,13 @@
 //
 
 import UIKit
-import CoreData
+import RealmSwift
 
 
 class StorageViewController: UIViewController {
     
+    
+    let realm = try! Realm()
     
     var category = [Storage]()
     
@@ -43,34 +45,38 @@ class StorageViewController: UIViewController {
     }
     
     
-    //Data Manipulation
-    
-    func saveCategory(){
-        do {
-            try context.save()
-        }catch{
-            print("Error saving category \(error)")
-        }
-    }
-    
-    func loadCategory(){
-        let request : NSFetchRequest<Storage> = Storage.fetchRequest()
-        
-        do{
-            category = try context.fetch(request)
-        } catch {
-            print("Error loading category \(error)")
-        }
-    }
-    
+  
     //MARK:- Delegate Method
-    
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
        // let destinationVC = segue.destination as! FrozenListViewController
         
     }
+    
+    
+    //Data Manipulation
+    
+    func save(category: Storage){
+        do {
+            try realm.write {
+                realm.add(category)
+            }
+        }catch{
+            print("Error saving category \(error)")
+        }
+    }
+    
+    func loadCategory(){
+//        let request : NSFetchRequest<Storage> = Storage.fetchRequest()
+//        
+//        do{
+//            category = try context.fetch(request)
+//        } catch {
+//            print("Error loading category \(error)")
+//        }
+    }
+    
     
     
     //MARK:- Alert Action
@@ -83,14 +89,14 @@ class StorageViewController: UIViewController {
         
         let action = UIAlertAction(title: "Add", style: .default) { (action) in
             
-            let newCategory = Storage(context: self.context)
-            newCategory.storageName = textField.text!
+            let newCategory = Storage()
+            newCategory.name = textField.text!
             
             // var button   = UIButton.buttonWithType(UIButtonType.System) as UIButton
             let button = UIButton(type: .system) // let preferred over var here
-            button.frame = CGRect(x: 100,y: 100,width: 100,height: 100)
+            button.frame = CGRect(x: 47,y: 503,width: 320,height: 200)
             button.backgroundColor = UIColor.green
-            button.setTitle(newCategory.storageName, for: UIControl.State.init())
+            button.setTitle(newCategory.name, for: UIControl.State.init())
             //button.addTarget(self, action: "Action:", for: UIControl.Event.touchUpInside)
             self.view.addSubview(button)
             
@@ -98,7 +104,7 @@ class StorageViewController: UIViewController {
     
             
             
-            self.saveCategory()
+            self.save(category: newCategory)
         }
         
         alert.addAction(action)
@@ -117,6 +123,9 @@ class StorageViewController: UIViewController {
     @objc func alertControllerBackgroundTapped(){
         self.dismiss(animated: true, completion: nil)
     }
+    
+    
+    
  
 }
 

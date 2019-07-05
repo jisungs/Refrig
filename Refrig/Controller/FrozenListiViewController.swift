@@ -7,18 +7,20 @@
 //
 
 import UIKit
-import CoreData
+import RealmSwift
 
 
 class FrozenListViewController : UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate{
   
-    
+    let realm = try! Realm()
     
     override func viewDidLoad() {
         super .viewDidLoad()
         
         print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
         
+        //prepare to reload tableview to another viewcontroller
+        NotificationCenter.default.addObserver(self, selector: #selector(loadView), name: NSNotification.Name(rawValue: "load"), object: nil)
         
         let add = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(self.addButtonPreesed(sender:)))
         self.navigationItem.rightBarButtonItem = add
@@ -26,13 +28,20 @@ class FrozenListViewController : UIViewController, UITableViewDelegate, UITableV
         
     }
     
+    //Define what tableView reload
+    func loadList(notification: NSNotification){
+        //load data here
+        self.FrozenTableView.reloadData()
+    }
 
     
+
+    //MARK:- Alert service property
     let alertService = AlertService()
     
     var selectedStorage : Storage? {
         didSet{
-            loadItems()
+           // loadItems()
         }
     }
     
@@ -44,14 +53,14 @@ class FrozenListViewController : UIViewController, UITableViewDelegate, UITableV
     
     
     
-    //When touch outside of keyboard it reset the position
+    //MARK:- When touch outside of keyboard it reset the position
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
     
     
     
-    //when Retrun input occuerd the keyboard is reset 
+    //MARK:- when Retrun input occuerd the keyboard is reset
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         
@@ -80,7 +89,7 @@ class FrozenListViewController : UIViewController, UITableViewDelegate, UITableV
     
     }
     
-    //MARK - TableView Delegate Method
+    //MARK: - TableView Delegate Method
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //print(FrozenItemArray[indexPath.row])
@@ -88,51 +97,29 @@ class FrozenListViewController : UIViewController, UITableViewDelegate, UITableV
         //Toggling data modals property
         FrozenItemArray[indexPath.row].done = !FrozenItemArray[indexPath.row].done
         
-       saveItem()
+       //saveItem()
         
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    //MARK - Remove cell using swipe action
+    //MARK: - Remove cell using swipe action
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
         if editingStyle == UITableViewCell.EditingStyle.delete {
-            self.context.delete(FrozenItemArray[indexPath.row])
+            //self.context.delete(FrozenItemArray[indexPath.row])
             FrozenItemArray.remove(at: indexPath.row)
-            saveItem()
+           // save(item : Item)
             
         }
     }
     
-    //MARK - Add new Item
+    //MARK: - Add new Item
     
     @objc func addButtonPreesed(sender: UIBarButtonItem){
         
-        //var textField = UITextField()
-        
         let alertVC = alertService.alert()
         
-       // let alert = UIAlertController(title: "Add New Item", message: "", preferredStyle: .alert)
-        
-//        let action = UIAlertAction(title: "Add Item", style: .default) { (action) in
-//
-//
-//          let newItem = Item(context: self.context)
-//            newItem.title = textField.text!
-//            newItem.done = false
-//
-//            self.FrozenItemArray.append(newItem)
-//            
-//            self.saveItem()
-//        }
-        
-//        alert.addAction(action)
-//
-//        alert.addTextField { (alertTextField) in
-//            alertTextField.placeholder = "Create new Item"
-//            textField = alertTextField
-//        }
         
        // present(alert, animated: true, completion: nil)
         
@@ -147,12 +134,14 @@ class FrozenListViewController : UIViewController, UITableViewDelegate, UITableV
         self.dismiss(animated: true, completion: nil)
     }
     
-    //MARK - Model Manupulatation Methods
+    //MARK: - Model Manupulatation Methods
     
-    func saveItem(){
+    func save(item : Item){
         do{
             
-            try context.save()
+            try realm.write {
+                realm.add(item)
+            }
             
         }catch{
             print("Erro saving context \(error)")
@@ -161,20 +150,20 @@ class FrozenListViewController : UIViewController, UITableViewDelegate, UITableV
         self.FrozenTableView.reloadData()
     }
     
-    func loadItems(with request : NSFetchRequest<Item> = Item.fetchRequest()){
-       // let request : NSFetchRequest<Item> = Item.fetchRequest()
-       
-        do {
-           FrozenItemArray = try context.fetch(request)
-        }catch {
-            print("Error fetching data from context \(error)")
-        }
-       
-        FrozenTableView.reloadData()
+//    func loadItems(with request : NSFetchRequest<Item> = Item.fetchRequest()){
+//       // let request : NSFetchRequest<Item> = Item.fetchRequest()
+//
+//        do {
+//           FrozenItemArray = try context.fetch(request)
+//        }catch {
+//            print("Error fetching data from context \(error)")
+//        }
+//
+//        FrozenTableView.reloadData()
+//
+    
         
-        
-        
-    }
+   // }
     
     
 }// End of Frozen view Controller
@@ -182,29 +171,29 @@ class FrozenListViewController : UIViewController, UITableViewDelegate, UITableV
 
 //MARK :- Search bar method
 
-extension FrozenListViewController: UISearchBarDelegate {
-    
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        
-        let request : NSFetchRequest<Item> = Item.fetchRequest()
-        
-        request.predicate = NSPredicate(format: "title CONTAINS[cd]", searchBar.text! )
-        
-        request.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
-        
-        loadItems(with: request)
-        
-        
-    }
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if searchBar.text?.count == 0 {
-            loadItems()
-            DispatchQueue.main.async {
-               searchBar.resignFirstResponder()
-            }
-            
-        }
-    }
-    
-}
+//extension FrozenListViewController: UISearchBarDelegate {
+//
+//    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+//
+//        let request : NSFetchRequest<Item> = Item.fetchRequest()
+//
+//        request.predicate = NSPredicate(format: "title CONTAINS[cd]", searchBar.text! )
+//
+//        request.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
+//
+//        loadItems(with: request)
+//
+//
+//    }
+//
+//    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+//        if searchBar.text?.count == 0 {
+//            loadItems()
+//            DispatchQueue.main.async {
+//               searchBar.resignFirstResponder()
+//            }
+//
+//        }
+//    }
+//
+//}

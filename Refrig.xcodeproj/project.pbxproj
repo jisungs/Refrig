@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9602DBD122CC6E9A00375105 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9602DBD022CC6E9A00375105 /* Data.swift */; };
+		960222D522CEDBA1004DE707 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960222D422CEDBA1004DE707 /* Item.swift */; };
+		960222D722CEDBAC004DE707 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960222D622CEDBAC004DE707 /* Storage.swift */; };
 		961195FD22B4C7A300AA2B6E /* AlertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961195FC22B4C7A300AA2B6E /* AlertService.swift */; };
-		961F774522AF68E000C1D53E /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 961F774322AF68E000C1D53E /* DataModel.xcdatamodeld */; };
 		961F774722AF850400C1D53E /* DeatilsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961F774622AF850400C1D53E /* DeatilsViewController.swift */; };
 		962C3AD522A4ED8C004AC250 /* FrozenListiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962C3AD422A4ED8C004AC250 /* FrozenListiViewController.swift */; };
 		969837F322B3581B00841A8B /* AlertStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 969837F222B3581B00841A8B /* AlertStoryboard.storyboard */; };
@@ -25,9 +25,9 @@
 /* Begin PBXFileReference section */
 		674F94AF7C16A9183F931E04 /* Pods_Refrig.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Refrig.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E17F7200FDFDA9B5036DF91 /* Pods-Refrig.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Refrig.release.xcconfig"; path = "Target Support Files/Pods-Refrig/Pods-Refrig.release.xcconfig"; sourceTree = "<group>"; };
-		9602DBD022CC6E9A00375105 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		960222D422CEDBA1004DE707 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		960222D622CEDBAC004DE707 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		961195FC22B4C7A300AA2B6E /* AlertService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertService.swift; sourceTree = "<group>"; };
-		961F774422AF68E000C1D53E /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		961F774622AF850400C1D53E /* DeatilsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeatilsViewController.swift; sourceTree = "<group>"; };
 		962C3AD422A4ED8C004AC250 /* FrozenListiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrozenListiViewController.swift; sourceTree = "<group>"; };
 		969837F222B3581B00841A8B /* AlertStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AlertStoryboard.storyboard; sourceTree = "<group>"; };
@@ -85,8 +85,8 @@
 		9668AA3022AA3A600018D0B4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				961F774322AF68E000C1D53E /* DataModel.xcdatamodeld */,
-				9602DBD022CC6E9A00375105 /* Data.swift */,
+				960222D622CEDBAC004DE707 /* Storage.swift */,
+				960222D422CEDBA1004DE707 /* Item.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -266,12 +266,12 @@
 			files = (
 				969837F922B358AB00841A8B /* AlertViewController.swift in Sources */,
 				96A9F78822A3B0DD00B01C8A /* ViewController.swift in Sources */,
-				961F774522AF68E000C1D53E /* DataModel.xcdatamodeld in Sources */,
 				961F774722AF850400C1D53E /* DeatilsViewController.swift in Sources */,
+				960222D522CEDBA1004DE707 /* Item.swift in Sources */,
+				960222D722CEDBAC004DE707 /* Storage.swift in Sources */,
 				962C3AD522A4ED8C004AC250 /* FrozenListiViewController.swift in Sources */,
 				961195FD22B4C7A300AA2B6E /* AlertService.swift in Sources */,
 				96A9F78622A3B0DD00B01C8A /* AppDelegate.swift in Sources */,
-				9602DBD122CC6E9A00375105 /* Data.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -473,19 +473,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		961F774322AF68E000C1D53E /* DataModel.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				961F774422AF68E000C1D53E /* DataModel.xcdatamodel */,
-			);
-			currentVersion = 961F774422AF68E000C1D53E /* DataModel.xcdatamodel */;
-			path = DataModel.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 96A9F77A22A3B0DD00B01C8A /* Project object */;
 }

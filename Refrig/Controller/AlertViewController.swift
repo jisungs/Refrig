@@ -7,10 +7,15 @@
 //
 
 import UIKit
-import CoreData
+import RealmSwift
 
 class AlertViewController: UIViewController {
    
+    let realm = try! Realm()
+    
+    var Items = [Item]()
+    
+    //MARK: - Viewdidload
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -19,7 +24,7 @@ class AlertViewController: UIViewController {
     }
     
     
-    //Sliding up whed keyboard appeared
+    //MARK:- Sliding up whed keyboard appeared
     @objc func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
             if self.view.frame.origin.y == 0 {
@@ -35,7 +40,8 @@ class AlertViewController: UIViewController {
         }
     }
     
-    let FrozenListVC = FrozenListViewController()
+    
+  
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
@@ -53,45 +59,48 @@ class AlertViewController: UIViewController {
     
     @IBAction func add(_ sender: Any) {
         
-        let newItem = Item(context: self.context)
+        let newItem = Item()
         newItem.title = itemName.text!
         newItem.done = false
-        newItem.exDate = Date()
-        
+        newItem.exDate = exDate.date
        
-        FrozenListViewController().FrozenItemArray.append(newItem)
+        Items.append(newItem)
         
-        saveItem()
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
+        
+        save(item: newItem)
         
     }
     
     
-    func saveItem(){
+    func save(item : Item){
         do {
-            try context.save()
+            try realm.write {
+                realm.add(item)
+            }
         }catch{
             print("Error saving context \(error)")
         }
         
-        let FrozenListTable = FrozenListViewController().FrozenTableView
+       // var FrozenListTable = FrozenListViewController().FrozenTableView
         
-        if FrozenListTable != nil {
-            FrozenListTable?.reloadData()
-        }else {
-            print("Error when reload data")
-        }
-        
+//        if FrozenListTable == nil {
+//            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
+//        }else {
+//            print("Error when reload data")
+//        }
+//
        // FrozenListViewController().FrozenTableView.reloadData()
     }
     
-    func loadItems(with request: NSFetchRequest<Item> = Item.fetchRequest()){
-    
-        do{
-            FrozenListViewController().FrozenItemArray = try context.fetch(request)
-        }catch {
-            print("Error fetching data from context \(error)")
-        }
-        
-        FrozenListViewController().FrozenTableView.reloadData()
-    }
+//    func loadItems(with request: NSFetchRequest<Item> = Item.fetchRequest()){
+//    
+//        do{
+//            FrozenListViewController().FrozenItemArray = try context.fetch(request)
+//        }catch {
+//            print("Error fetching data from context \(error)")
+//        }
+//        
+//        FrozenListViewController().FrozenTableView.reloadData()
+//    }
 }
