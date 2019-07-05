@@ -15,13 +15,13 @@ class StorageViewController: UIViewController {
     
     let realm = try! Realm()
     
-    var category = [Storage]()
+    var categories : Results<Storage>!
     
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        loadStorage()
     }
     
     //When touch outside of keyboard it reset the position
@@ -67,17 +67,10 @@ class StorageViewController: UIViewController {
         }
     }
     
-    func loadCategory(){
-//        let request : NSFetchRequest<Storage> = Storage.fetchRequest()
-//        
-//        do{
-//            category = try context.fetch(request)
-//        } catch {
-//            print("Error loading category \(error)")
-//        }
+    func loadStorage(){
+        categories = realm.objects(Storage.self)
+        
     }
-    
-    
     
     //MARK:- Alert Action
     
@@ -95,14 +88,10 @@ class StorageViewController: UIViewController {
             // var button   = UIButton.buttonWithType(UIButtonType.System) as UIButton
             let button = UIButton(type: .system) // let preferred over var here
             button.frame = CGRect(x: 47,y: 503,width: 320,height: 200)
-            button.backgroundColor = UIColor.green
+            button.backgroundColor = UIColor.brown
             button.setTitle(newCategory.name, for: UIControl.State.init())
             //button.addTarget(self, action: "Action:", for: UIControl.Event.touchUpInside)
             self.view.addSubview(button)
-            
-            self.category.append(newCategory)
-    
-            
             
             self.save(category: newCategory)
         }
@@ -123,6 +112,8 @@ class StorageViewController: UIViewController {
     @objc func alertControllerBackgroundTapped(){
         self.dismiss(animated: true, completion: nil)
     }
+    
+    
     
     
     
