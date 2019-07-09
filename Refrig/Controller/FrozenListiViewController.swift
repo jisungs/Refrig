@@ -96,7 +96,7 @@ class FrozenListViewController : UIViewController, UITableViewDelegate, UITableV
         //print(FrozenItemArray[indexPath.row])
         
         //Toggling data modals property
-        ItemArray?[indexPath.row].done = !ItemArray?[indexPath.row].done
+//        ItemArray?[indexPath.row].done = !ItemArray?[indexPath.row].done
         
        //saveItem()
         
@@ -109,7 +109,7 @@ class FrozenListViewController : UIViewController, UITableViewDelegate, UITableV
         
         if editingStyle == UITableViewCell.EditingStyle.delete {
             //self.context.delete(FrozenItemArray[indexPath.row])
-            ItemArray.remove(at: indexPath.row)
+           // ItemArray.remove(at: indexPath.row)
            // save(item : Item)
             
         }
